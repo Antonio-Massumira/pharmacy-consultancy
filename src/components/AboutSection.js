@@ -6,11 +6,11 @@ export default function AboutSection() {
     },
     {
       title: "Reconciliação de Receitas",
-      description: "Analisamos suas receitas para prevenir problemas com medicamentos."
+      description: "Analisamos suas receitas para prevenir problemas relacionados com o uso de medicamentos."
     },
     {
       title: "Consultoria Farmacêutica",
-      description: "Orientações para abertura e gestão de farmácias e assuntos relacionados."
+      description: "Orientação para abertura de farmácia, gestão de medicamentos e assuntos relacionados."
     },
   ];
 
