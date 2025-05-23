@@ -1,4 +1,5 @@
-import Navbar from "./Navbar";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import "@/app/globals.css"
 
 export default function MainLayout({ children }) {
@@ -6,9 +7,7 @@ export default function MainLayout({ children }) {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">{children}</main>
-      <footer className="bg-blue-800 text-white py-4 text-center">
-        &copy; {new Date().getFullYear()} Arubeia. Todos os direitos reservados.
-      </footer>
+      <Footer />
     </div>
   );
 }
