@@ -17,21 +17,23 @@ export default function HeroCarousel() {
             <br className="hidden md:block" />
             reconciliação de receitas e apoio à abertura de farmácias.
           </p>
-          <button
-            className="mt-6 bg-gradient-to-r from-[#2A9D8F] to-[#21867A] text-white font-semibold px-6 py-3 rounded-xl shadow-xl 
-                   hover:scale-105 hover:brightness-110 transition-all duration-300 flex items-center gap-2"
-          >
-            Saber Mais
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
+          <a href="#sobre" className="block w-fit">
+            <button
+              className="mt-6 bg-gradient-to-r from-[#2A9D8F] to-[#21867A] text-white font-semibold px-6 py-3 rounded-xl shadow-xl 
+           hover:scale-105 hover:brightness-110 transition-all duration-300 flex items-center gap-2"
             >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
+              Saber Mais
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </a>
         </div>
 
         {/* Imagem à direita */}
