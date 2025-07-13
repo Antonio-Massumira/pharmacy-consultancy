@@ -97,7 +97,7 @@ export default function ReconciliationForm() {
 
   return (
     <div className="max-w-3xl mx-auto p-6">
-      <h2 className="text-2xl font-bold text-gray-800 mb-2">
+      <h2 className="text-2xl font-bold text-[#2A9D8F] mb-2">
         Pedido de Reconciliação de Receita
       </h2>
       <p className="text-gray-500 mb-6">
@@ -274,7 +274,7 @@ export default function ReconciliationForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg shadow-md"
+            className="w-full bg-[#2A9D8F] hover:bg-[#21867A] text-white font-semibold py-3 rounded-lg shadow-md"
           >
             {loading ? "A Enviar..." : "📩 Enviar Pedido"}
           </button>
