@@ -5,6 +5,7 @@ export default function ReconciliationForm() {
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
+    contacto: '',
     descricao: [
       { fnm: '', generico: '', dosagem: '', forma: '' }
     ],
@@ -70,6 +71,7 @@ export default function ReconciliationForm() {
       const body = new FormData();
       body.append('nome', formData.nome);
       body.append('email', formData.email);
+      body.append('contacto', formData.contacto);
       body.append('comentarios', formData.comentarios);
 
       // Adiciona múltiplas descrições como JSON
@@ -140,88 +142,99 @@ export default function ReconciliationForm() {
           />
         </div>
 
+        <div>
+          <label className="block mb-1 text-gray-700 font-semibold">
+            📱 Contacto
+          </label>
+          <input
+              type="text"
+              name="contacto"
+              value={formData.contacto}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm"
+              placeholder="Informe o seu numero de telefone"
+          />
+        </div>
+
        {/* Descrições */}
-<div>
-  <label className="block mb-3 text-gray-700 font-bold text-lg">
-    📜 Descrição da Receita
-  </label>
-  {formData.descricao.map((item, idx) => (
-    <div
-      key={idx}
-      className="
-        flex flex-col gap-2 mb-6
-        md:grid md:grid-cols-2 md:gap-4 md:mb-4
-        lg:grid-cols-4
-      "
-    >
-      <input
-        type="text"
-        placeholder="FNM"
-        value={item.fnm}
-        onChange={(e) => handleChange(e, idx, "fnm")}
-        name="descricao"
-        required
-        className="px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
-      />
-      <input
-        type="text"
-        placeholder="Nome Genérico"
-        value={item.generico}
-        onChange={(e) => handleChange(e, idx, "generico")}
-        name="descricao"
-        required
-        className="px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
-      />
-      <input
-        type="text"
-        placeholder="Dosagem"
-        value={item.dosagem}
-        onChange={(e) => handleChange(e, idx, "dosagem")}
-        name="descricao"
-        required
-        className="px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
-      />
-      <div className="flex w-full items-center gap-2">
-        <input
-          type="text"
-          placeholder="Forma"
-          value={item.forma}
-          onChange={(e) => handleChange(e, idx, "forma")}
-          name="descricao"
-          required
-          className="px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
-        />
-        {/* Só mostra o botão ao lado em telas médias e maiores */}
-        {formData.descricao.length > 1 && (
+        <div>
+          <label className="block mb-3 text-gray-700 font-bold text-lg">
+            📜 Descrição da Receita
+          </label>
+          {formData.descricao.map((item, idx) => (
+            <div
+              key={idx}
+              className="
+                flex flex-col gap-2 mb-6
+                md:grid md:grid-cols-2 md:gap-4 md:mb-4
+                lg:grid-cols-4
+              "
+            >
+              <input
+                type="text"
+                placeholder="FNM"
+                value={item.fnm}
+                onChange={(e) => handleChange(e, idx, "fnm")}
+                name="descricao"
+                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
+              />
+              <input
+                type="text"
+                placeholder="Nome Genérico"
+                value={item.generico}
+                onChange={(e) => handleChange(e, idx, "generico")}
+                name="descricao"
+                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
+              />
+              <input
+                type="text"
+                placeholder="Dosagem"
+                value={item.dosagem}
+                onChange={(e) => handleChange(e, idx, "dosagem")}
+                name="descricao"
+                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
+              />
+              <div className="flex w-full items-center gap-2">
+                <input
+                  type="text"
+                  placeholder="Forma"
+                  value={item.forma}
+                  onChange={(e) => handleChange(e, idx, "forma")}
+                  name="descricao"
+                  className="px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full"
+                />
+                {/* Só mostra o botão ao lado em telas médias e maiores */}
+                {formData.descricao.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveDescricao(idx)}
+                    className="hidden md:inline text-red-500 hover:text-red-700 text-xs ml-4"
+                  >
+                    Remover
+                  </button>
+                )}
+              </div>
+              {/* Exibe o botão abaixo do campo em mobile */}
+              {formData.descricao.length > 1 && (
+                <button
+                  type="button"
+                  onClick={() => handleRemoveDescricao(idx)}
+                  className="md:hidden text-red-500 hover:text-red-700 text-xs mt-1 self-end"
+                >
+                  Remover
+                </button>
+              )}
+            </div>
+          ))}
           <button
             type="button"
-            onClick={() => handleRemoveDescricao(idx)}
-            className="hidden md:inline text-red-500 hover:text-red-700 text-xs ml-4"
+            onClick={handleAddDescricao}
+            className="text-sm text-blue-600 hover:text-blue-800 font-medium mt-2"
           >
-            Remover
+            ➕ Adicionar outra descrição
           </button>
-        )}
-      </div>
-      {/* Exibe o botão abaixo do campo em mobile */}
-      {formData.descricao.length > 1 && (
-        <button
-          type="button"
-          onClick={() => handleRemoveDescricao(idx)}
-          className="md:hidden text-red-500 hover:text-red-700 text-xs mt-1 self-end"
-        >
-          Remover
-        </button>
-      )}
-    </div>
-  ))}
-  <button
-    type="button"
-    onClick={handleAddDescricao}
-    className="text-sm text-blue-600 hover:text-blue-800 font-medium mt-2"
-  >
-    ➕ Adicionar outra descrição
-  </button>
-</div>
+        </div>
 
         {/* Comentários */}
         <div>
@@ -233,6 +246,7 @@ export default function ReconciliationForm() {
             value={formData.comentarios}
             onChange={handleChange}
             rows={3}
+            required
             className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm"
           />
         </div>

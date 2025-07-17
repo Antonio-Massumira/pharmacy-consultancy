@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function HeroCarousel() {
   return (
     <section className="bg-[#f9fafb]">
-      <div className="container max-w-[90%] mx-auto px-3 py-16 flex flex-col md:flex-row items-center gap-4 xl:gap-20">
+      <div className="container mx-auto flex flex-col md:flex-row py-4 px-6">
         {/* Texto à esquerda */}
         <div className="w-full md:w-[50%] flex flex-col justify-center items-start text-left">
           <h1 className="text-[#2A9D8F] text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight drop-shadow-sm">
@@ -19,7 +19,7 @@ export default function HeroCarousel() {
           </p>
           <a href="#sobre" className="block w-fit">
             <button
-              className="mt-6 bg-gradient-to-r from-[#2A9D8F] to-[#21867A] text-white font-semibold px-6 py-3 rounded-xl shadow-xl 
+              className="mt-6 mb-2 bg-gradient-to-r from-[#2A9D8F] to-[#21867A] text-white font-semibold px-6 py-3 rounded-xl shadow-xl
            hover:scale-105 hover:brightness-110 transition-all duration-300 flex items-center gap-2"
             >
               Saber Mais
@@ -39,7 +39,7 @@ export default function HeroCarousel() {
         {/* Imagem à direita */}
         <div className="w-full md:w-[50%] aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl">
           <Image
-            src="/images/Arubeia_hero.jpg"
+            src="/images/Arubeia.jpg"
             alt="Imagem de farmácia"
             fill
             priority

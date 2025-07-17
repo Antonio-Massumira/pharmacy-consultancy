@@ -9,12 +9,13 @@ export async function POST(req) {
 
     const nome = formData.get('nome');
     const email = formData.get('email');
+    const contacto = formData.get('contacto');
     const comentarios = formData.get('comentarios');
     const descricaoJson = formData.get('descricao');
     const imagens = formData.getAll('imagem').filter(Boolean);
 
     // Validar campos obrigatórios básicos
-    if (!nome || !email || !descricaoJson || imagens.length === 0) {
+    if (!nome || !email || !contacto || imagens.length === 0) {
       return NextResponse.json({ message: 'Campos obrigatórios em falta' }, { status: 400 });
     }
 
@@ -30,11 +31,11 @@ export async function POST(req) {
       return NextResponse.json({ message: 'Nenhuma descrição foi fornecida' }, { status: 400 });
     }
 
-    for (const item of descricao) {
-      if (!item.fnm || !item.generico || !item.dosagem || !item.forma) {
-        return NextResponse.json({ message: 'Todos os campos da descrição são obrigatórios' }, { status: 400 });
-      }
-    }
+    //for (const item of descricao) {
+      //if (!item.fnm || !item.generico || !item.dosagem || !item.forma) {
+        //return NextResponse.json({ message: 'Todos os campos da descrição são obrigatórios' }, { status: 400 });
+      //}
+    //}
 
     if (imagens.length > 4) {
       return NextResponse.json({ message: 'No máximo 4 imagens podem ser enviadas' }, { status: 400 });
@@ -75,6 +76,7 @@ export async function POST(req) {
 
           <p><strong>👤 Nome:</strong> ${nome}</p>
           <p><strong>📧 Email:</strong> ${email}</p>
+          <p><strong>📳 Contacto:</strong> ${contacto}</p>
 
           <table style="width:100%; border-collapse:collapse; margin:16px 0; font-size:14px;">
             <tr style="background:#0ea5e9; color:white;">

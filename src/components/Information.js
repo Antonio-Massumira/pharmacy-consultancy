@@ -6,87 +6,98 @@ import {
   FaGraduationCap,
   FaHospitalAlt,
   FaPills,
-  FaBriefcaseMedical
+  FaBriefcaseMedical,
 } from 'react-icons/fa';
 
 export default function InformationSection() {
+  const bioItems = [
+    {
+      icon: <FaGraduationCap className="text-[#2A9D8F] text-xl" />,
+      text: `Graduado como Agente de Farmácia pelo Instituto de Ciências de Saúde de Quelimane (2005) e Licenciado em Farmácia pela Universidade Católica de Moçambique (2021).`,
+    },
+    {
+      icon: <FaHospitalAlt className="text-[#2A9D8F] text-xl" />,
+      text: `Com mais de 20 anos no MISAU, actuou como Gestor Distrital e Provincial.`,
+    },
+    {
+      icon: <FaPills className="text-[#2A9D8F] text-xl" />,
+      text: `Actuou em várias farmácias de destaque, incluindo Shanaya (Maciana – Manhiça), Dói Dói (Boquisso – Matola e M’Memo – Marracuene), Chungussura (Beira), Maria Elisa (Macuti), Cristal Box e Pontagea.`,
+    },
+    {
+      icon: <FaBriefcaseMedical className="text-[#2A9D8F] text-xl" />,
+      text: `Actualmente dedica-se a realizar consultas farmacêuticas na Unidade Sanitária de Namacula e no Hospital Provincial de Lichinga.`,
+    },
+  ];
+
   return (
-    <section className="bg-white py-2 px-6 md:px-16 lg:px-32 scroll-mt-24">
-      {/* Título principal */}
-      <div className="text-center mb-12">
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-          Conheça o profissional por trás da nossa consultoria farmacêutica.
-        </p>
-      </div>
+      <section className="bg-gray-50 py-16 sm:px-8 scroll-mt-24">
+        <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 p-6 sm:p-10 md:p-12 flex flex-col md:flex-row gap-10 items-center">
 
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20">
-        {/* Texto à esquerda com animação */}
-        <motion.div
-          className="w-full md:w-2/3"
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 2 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl font-extrabold text-[#2A9D8F] text-left uppercase mb-2">
-            dr. Mussa Bronze Arubeia
-          </h2>
-          <h3 className="text-lg text-left text-gray-700 font-semibold mb-8">
-            Consultor Farmacêutico e Gestor de Cuidados Farmacêuticos
-          </h3>
+          {/* Conteúdo à esquerda */}
+          <motion.div
+              className="w-full md:w-[55%] space-y-6"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+          >
+            <div>
+              <h2 className="text-3xl text-left font-bold text-gray-700">Dr. Mussa Bronze Arubeia</h2>
+              <hr className="bg-[#2A9D8F] h-1 my-2 border-0 rounded w-32" />
+            </div>
 
-          <div className="space-y-8 text-gray-600 text-base leading-relaxed">
-            {[
-              {
-                icon: <FaGraduationCap className="text-[#2A9D8F] text-4xl mt-1 shrink-0" />,
-                text: `Graduado como Agente de Farmácia pelo Instituto de Ciências de Saúde de Quelimane (2005) e Licenciado em Farmácia pela Universidade Católica de Moçambique (2021).`
-              },
-              {
-                icon: <FaHospitalAlt className="text-[#2A9D8F] text-4xl mt-1 shrink-0" />,
-                text: `Com mais de 20 anos no MISAU, atuou como Gestor Distrital, Gestor Provincial e atualmente é Gestor de Cuidados Farmacêuticos na Unidade Sanitária de Namacula e no Hospital Provincial de Lichinga.`
-              },
-              {
-                icon: <FaPills className="text-[#2A9D8F] text-4xl mt-1 shrink-0" />,
-                text: `Actuou em várias farmácias de destaque, incluindo Shanaya (Maciana – Manhiça), Dói Dói (Boquisso – Matola e M’Memo – Marracuene), Chungussura (Beira), Maria Elisa (Macuti), Cristal Box e Pontagea.`
-              },
-              {
-                icon: <FaBriefcaseMedical className="text-[#2A9D8F] text-4xl mt-1 shrink-0" />,
-                text: `Actualmente dedica-se à consultoria farmacêutica, reconciliação de receitas e educação em saúde.`
-              }
-            ].map(({ icon, text }, i) => (
-              <motion.div
-                key={i}
-                className="flex items-start gap-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 * i, duration: 1.2 }}
-                viewport={{ once: true }}
-              >
-                {icon}
-                <p style={{ textAlign: 'justify' }}>{text}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+            <div className="space-y-4 text-gray-700 text-sm leading-relaxed">
+              {bioItems.map(({ icon, text }, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="pt-1">{icon}</div>
+                    <p className="text-justify">{text}</p>
+                  </div>
+              ))}
+            </div>
 
-        {/* Imagem à direita com moldura e sombra */}
-        <motion.div
-          className="w-full md:w-1/3 flex justify-center"
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 2 }}
-          viewport={{ once: true }}
-        >
-          <div className="w-64 h-64 md:w-72 md:h-72 relative rounded-full overflow-hidden shadow-2xl ring-4 ring-[#2A9D8F]/30">
-            <Image
-              src="/images/Arubeia.jpg"
-              alt="Dr. Mussa Bronze Arubeia"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </motion.div>
-      </div>
-    </section>
+            {/* Barras de Progresso */}
+            <div className="space-y-4 mt-6">
+              <div>
+                <div className="flex justify-between mb-1">
+                  <span className="text-sm text-gray-700 font-medium">Experiência Profissional</span>
+                  <span className="text-sm text-gray-500">90%</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="bg-[#2A9D8F] h-2 rounded-full w-[90%]"></div>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between mb-1">
+                  <span className="text-sm text-gray-700 font-medium">Consultoria Farmacêutica</span>
+                  <span className="text-sm text-gray-500">85%</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="bg-[#4DD0E1] h-2 rounded-full w-[85%]"></div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Imagem à direita */}
+          <motion.div
+              className="w-full md:w-[45%] flex justify-center"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+          >
+            <div className="relative w-full h-[65vh] max-w-sm rounded-xl overflow-hidden border border-[#2A9D8F]/30 shadow-lg">
+              <Image
+                  src="/images/Arubeia.jpg"
+                  alt="Dr. Mussa Bronze Arubeia"
+                  fill
+                  className="object-cover object-center"
+                  priority
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { FaPills, FaFilePrescription, FaBriefcaseMedical } from 'react-icons/fa';
+import { FaPills, FaFilePrescription, FaBriefcaseMedical, FaHeartbeat } from 'react-icons/fa';
 
 export default function AboutSection() {
   const cards = [
@@ -19,11 +19,16 @@ export default function AboutSection() {
       description: "Orientação para abertura de farmácia, gestão de medicamentos e assuntos relacionados.",
       icon: <FaBriefcaseMedical className="text-4xl text-[#2A9D8F]" />
     },
+    {
+      title: "Acompanhamento Farmacoterapêutico",
+      description: "Acompanhamos pacientes com doenças crônicas como hipertensão, diabetes, doenças cardíacas e respiratórias.",
+      icon: <FaHeartbeat className="text-4xl text-[#2A9D8F]" />
+    },
   ];
 
   return (
-    <div className="container mx-auto py-16 px-6 md:px-12">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+    <div className="container mx-auto py-16 px-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-center">
         {cards.map((card, index) => (
           <div
             key={index}
